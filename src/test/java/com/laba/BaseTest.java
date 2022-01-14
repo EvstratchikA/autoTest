@@ -1,19 +1,22 @@
+package com.laba;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
+import com.laba.pages.SwagLabsConstants;
+
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-public abstract class AbstractTest {
+public abstract class BaseTest {
 
     protected WebDriver driver;
 
     @BeforeClass
     public void configureProperty(){
-        System.setProperty("webdriver.chrome.driver","/Users/diana/Downloads/chromedriver");
+        System.setProperty("webdriver.chrome.driver","/Users/vliavitski/Documents/driver/chromedriver97");
         driver = new ChromeDriver();
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         driver.get(SwagLabsConstants.HOST);

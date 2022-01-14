@@ -1,3 +1,4 @@
+package com.laba.pages;
 public class SwagLabsConstants {
 
     public static final String HOST = "https://www.saucedemo.com/";
