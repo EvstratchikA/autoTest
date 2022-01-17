@@ -16,7 +16,7 @@ public abstract class BaseTest {
 
     @BeforeClass
     public void configureProperty(){
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\Анастасия\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\evstr\\chromedriver_win32\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         driver.get(SwagLabsConstants.HOST);

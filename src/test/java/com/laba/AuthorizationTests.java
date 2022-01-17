@@ -16,5 +16,4 @@ public class AuthorizationTests extends BaseTest {
         Assert.assertEquals(productsLabel,SwagLabsConstants.PRODUCTS_GALLERY);
     }
 
-
 }
