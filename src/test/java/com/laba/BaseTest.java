@@ -23,7 +23,7 @@ public abstract class BaseTest {
         driver.manage().window().maximize();
     }
 
-   @AfterMethod
+    @AfterMethod
     public void shutDown(){
         driver.close();
     }
