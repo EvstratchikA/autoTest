@@ -1,4 +1,5 @@
 package com.laba.pages;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -6,6 +7,8 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 
 public class LoginPage {
 
@@ -21,6 +24,8 @@ public class LoginPage {
     @FindBy (how = How.ID, id = "login-button")
     private WebElement buttonSubmit;
 
+    @FindBy (how = How.XPATH, xpath = "//div[@class='error-message-container error']")
+    private WebElement errorMessage;
 
     @FindBy (how = How.XPATH, xpath = "//*[contains(text(),'Products')]")
     private WebElement productLabel;
@@ -31,6 +36,26 @@ public class LoginPage {
         this.wait = new WebDriverWait(driver, 60);
         PageFactory.initElements(driver, this);
     }
+
+    public LoginPage doLoginLockedUser(String loginLockedUser, String passwordLockedUser) {
+        login.sendKeys(loginLockedUser);
+        password.sendKeys(passwordLockedUser);
+        buttonSubmit.click();
+        return PageFactory.initElements(driver, LoginPage.class);
+    }
+
+    public Boolean isErrorMessageDisplayed(){
+        return errorMessage.isDisplayed();
+    }
+
+
+    public LoginPage doLoginProblemUser(String loginProblemUser, String passwordProblemUser) {
+        login.sendKeys(loginProblemUser);
+        password.sendKeys(passwordProblemUser);
+        buttonSubmit.click();
+        return PageFactory.initElements(driver, LoginPage.class);
+    }
+
 
     public void login (){
         wait.until(ExpectedConditions.visibilityOf(login)).sendKeys(SwagLabsConstants.LOGIN_USER);

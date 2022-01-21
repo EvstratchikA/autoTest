@@ -3,24 +3,27 @@ package com.laba;
 import com.laba.pages.HomePage;
 import com.laba.pages.LoginPage;
 import com.laba.pages.SwagLabsConstants;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AddingOneProductTest extends BaseTest{
+public class AddRemoveProductOnHomePageTest extends BaseTest {
 
     @Test()
-    public void verifyAddingToCart() {
-
-
+    public void verifyCorrectCred() {
         LoginPage loginPage = new LoginPage(driver);
         String productsLabel = loginPage.setLoginForTest();
         Assert.assertEquals(productsLabel, SwagLabsConstants.PRODUCTS_GALLERY);
 
         HomePage home = new HomePage(driver);
         home.clickByAddBtn(0);
-        home.clickByCartIcon();
-        Boolean resultAdding = home.isProductNameDisplayed();
-        Assert.assertTrue(home.isProductNameDisplayed(), "Product name doesn't display");
+        home.checkByCartBadge();
+        Boolean resultBadge = home.isBadgeDisplayed();
+        Assert.assertTrue(home.isLabelDisplayed());
+        home.clickByRemoveBtn(0);
+        Assert.assertTrue(home.isCartBadgeEmpty(), "is Cart Badge not Empty");
+
     }
+
+
+
 }

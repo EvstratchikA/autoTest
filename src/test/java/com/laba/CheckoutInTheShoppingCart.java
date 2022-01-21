@@ -26,7 +26,6 @@ public class CheckoutInTheShoppingCart extends BaseTest {
                 yourInformation.inputPostalCodeField("22000");
                 yourInformation.clickByContinueBtn();
 
-
                 CheckoutOverviewPage checkoutOverviewPage = new CheckoutOverviewPage(driver);
                 checkoutOverviewPage.clickByFinishBtn();
                 Boolean descriptionOrder = checkoutOverviewPage.isOrderDisplayed();

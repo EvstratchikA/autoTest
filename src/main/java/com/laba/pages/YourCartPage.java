@@ -41,7 +41,9 @@ public class YourCartPage {
         return PageFactory.initElements(driver, YourCartPage.class);
     }
 
-
+    public Boolean isProductDisplayed() {
+        return product.isDisplayed();
+    }
 
 
 }

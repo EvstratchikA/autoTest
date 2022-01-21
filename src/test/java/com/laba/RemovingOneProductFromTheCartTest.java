@@ -21,6 +21,8 @@ public class RemovingOneProductFromTheCartTest extends BaseTest{
         home.clickByCartIcon();
 
         YourCartPage yourCart = new YourCartPage(driver);
+        Boolean resultProduct = yourCart.isProductDisplayed();
+        Assert.assertTrue(yourCart.isProductDisplayed(), "Product doesn't displayed");
         yourCart.clickByRemove();
 
 
