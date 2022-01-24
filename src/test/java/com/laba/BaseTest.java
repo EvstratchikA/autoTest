@@ -23,9 +23,9 @@ public abstract class BaseTest {
         driver.manage().window().maximize();
     }
 
-//    @AfterMethod
-//    public void shutDown(){
-//        driver.close();
-//    }
+    @AfterMethod
+    public void shutDown(){
+        driver.close();
+    }
 
 }

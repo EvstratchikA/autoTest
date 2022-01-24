@@ -33,7 +33,7 @@ public class CheckoutInTheShoppingCart extends BaseTest {
 
                 CheckoutCompletePage checkoutCompletePage = new CheckoutCompletePage(driver);
                 Boolean completeOrder = checkoutCompletePage.isOrderLogoDisplayed();
-                Assert.assertTrue(completeOrder);
+                Assert.assertFalse(completeOrder);
 
 
 

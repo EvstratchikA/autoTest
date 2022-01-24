@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Splendid Suite" >
+    <test verbose="1" name="Saucedemo test" annotations="JDK">
+        <classes>
+            <class name="com.laba.AddingOneProductTest" />
+            <class name="com.laba.CheckoutInTheShoppingCart" />
+            <class name="com.laba.TwitterTest">
+            </class>
+        </classes>
+    </test>
+</suite>

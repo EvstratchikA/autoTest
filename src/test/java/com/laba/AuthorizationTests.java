@@ -1,6 +1,5 @@
 package com.laba;
 import com.laba.pages.HomePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -8,6 +7,7 @@ import org.testng.annotations.Test;
 import com.laba.pages.LoginPage;
 import com.laba.pages.SwagLabsConstants;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AuthorizationTests extends BaseTest {
@@ -32,11 +32,18 @@ public class AuthorizationTests extends BaseTest {
     public void verifyCorrectCredProblemUser(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.doLoginProblemUser("problem_user", "secret_sauce");
+
         HomePage home = new HomePage(driver);
         Boolean resultProblem = home.isLabelDisplayed();
         Assert.assertTrue(resultProblem);
-        List<WebElement> dogImg = driver.findElements(By.xpath("//div[@class='inventory_item_img']"));
-        Assert.assertEquals(dogImg, home.getDogImg(By.xpath("//div[@class='inventory_item_img']")));
+
+        ArrayList<String> expectedResult = new ArrayList<String>();
+        for(int i = 0; i<6; i++){
+            expectedResult.add("/static/media/sl-404.168b1cce.jpg");
+        }
+        List<String> actualResults = home.getListOfPathImgs();
+
+        Assert.assertEquals(actualResults, expectedResult, "Image doesn't the same!");
 
     }
 
